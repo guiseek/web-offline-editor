@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" manifest="offline.appcache">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web off-line</title>
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="page-header">Web off-line</h1>
+          <nav class="navbar">
+            <button id="savebutton" onclick="save()" class="rock-btn rock-btn-success">Salvar</button>
+            <button onclick="sync()" class="rock-btn rock-btn-primary">Sincronizar</button>
+            <button onclick="applicationCache.update()" class="rock-btn rock-btn-warning">Atualizar</button>
+          </nav>
+          <div id="statusline" class="alert alert-info"></div>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+      <div class="row">
+        <div class="col-md-12">
+          <form role="form">
+            <div class="form-group">
+              <label for="editor">Nota</label>
+              <textarea name="editor" id="editor" class="form-control"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> <!-- /.container -->
+
+    <script src="js/offline.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

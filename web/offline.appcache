@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# Web off-line v1
+views/index.html
+css/style.css
+libs/bootstrap/dist/css/bootstrap.min.css
+js/offline.js
+libs/jquery/dist/jquery.min.js
+libs/bootstrap/dist/js/bootstrap.min.js
+NETWORK:
+note
