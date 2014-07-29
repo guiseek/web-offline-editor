@@ -1,4 +1,4 @@
-var editor, statusline, savebutton, idletimer;
+var editor, statusline, statuscon, savebutton, idletimer;
 
 window.onload = function() {
     if (localStorage.note == null) localStorage.note = "";
@@ -7,6 +7,7 @@ window.onload = function() {
 
     editor = document.getElementById("editor");
     statusline = document.getElementById("statusline");
+    statuscon = document.getElementById("statuscon");
     savebutton = document.getElementById("savebutton");
 
     editor.value = localStorage.note;
@@ -32,11 +33,12 @@ window.onbeforeunload = function() {
 
 window.onoffline = function() {
     console.log('Offline');
-    status("Offline");
+    changestatuscon('label label-danger','Offline');
 };
 
 window.ononline = function() {
     console.log('Online');
+    changestatuscon('label label-success','Online');
     sync();
 };
 
@@ -52,6 +54,10 @@ window.applicationCache.onnoupdate = function() {
 };
 
 function status(msg) { statusline.innerHTML = msg; }
+function changestatuscon(label, msg) {
+    statuscon.className = label;
+    statuscon.innerHTML = msg;
+}
 
 function save() {
     if (idletimer) clearTimeout(idletimer);
@@ -71,6 +77,7 @@ function save() {
 
 function sync() {
    if (navigator.onLine) {
+        changestatuscon('label label-success','Online');
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "/note");
         xhr.send();
@@ -118,6 +125,7 @@ function sync() {
     else {
         console.log('Não podemos sincronizar enquanto estivermos off-line');
         status("Não podemos sincronizar enquanto estivermos off-line");
+        changestatuscon('label label-danger','Offline');
         editor.disabled = false;
         editor.focus();
     }

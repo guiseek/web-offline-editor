@@ -24,8 +24,8 @@ $filename = __DIR__.'/notes/note.txt';
 $app->get('/note', function () use ($app, $filename) {
     $note = file_get_contents($filename);
 
-    $lastmodfile = filemtime($filename);
-    $lastmodified = date("M d Y H:i:s", $lastmodfile);
+    $file = filemtime($filename);
+    $lastmodified = date("M d Y H:i:s", $file);
 
     $headers = [
     	'Content-Type' => 'text/plain',

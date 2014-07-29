@@ -1,6 +1,6 @@
 #App Web Off-line
 
-### Frontend: HTML5, CSS3, twbs 3, jQuery and Pure JavaScript <3
+### Frontend: HTML5, CSS3, twbs 3 and Pure JavaScript <3
 ### Backend: Silex and Twig :)
 
 #Install
@@ -15,4 +15,4 @@
 	
 ### Run
 
-        php -S localhost:8888 -t web/
+	php -S localhost:8888 -t web/
